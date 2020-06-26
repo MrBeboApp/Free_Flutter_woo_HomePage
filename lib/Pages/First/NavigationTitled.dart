@@ -14,7 +14,7 @@ class _NavigationTitledState extends State<NavigationTitled> {
     return BottomNavigationBar(
     type:BottomNavigationBarType.fixed,
     currentIndex: _currentIndex,
-    selectedItemColor: Colors.lightBlue,
+    selectedItemColor: Colors.redAccent,
  
       items: [
     BottomNavigationBarItem(
