@@ -13,17 +13,19 @@ class _NavigationUntitledState extends State<NavigationUntitled> {
 
     return BottomNavigationBar(
     type:BottomNavigationBarType.fixed,
+    unselectedItemColor: Colors.grey[400],
     currentIndex: _currentIndex,
-    selectedItemColor: Colors.redAccent,
+    selectedItemColor: Color(0xff002638),
+    elevation: 0,
  
       items: [
     BottomNavigationBarItem(
-      icon:Icon(Icons.mail,),
+      icon:Icon(Icons.shopping_cart,),
       title: Text(''),
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
-      icon:Icon(Icons.flash_auto,),
+      icon:Icon(Icons.settings_voice,),
       title: Text(''),
       backgroundColor: Colors.white,
     ),
@@ -33,12 +35,7 @@ class _NavigationUntitledState extends State<NavigationUntitled> {
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
-      icon:Icon(Icons.search,),
-      title: Text(''),
-      backgroundColor: Colors.white,
-    ),
-        BottomNavigationBarItem(
-      icon:Icon(Icons.chat),
+      icon:Icon(Icons.settings,),
       title: Text(''),
       backgroundColor: Colors.white,
     ),
