@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woohome/Pages/Third/ThirdHomeScreen.dart';
 
 import 'Pages/First/FirstHome.dart';
 import 'Pages/Second/SecondHome.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SecondHome(),
+      home: ThirdHomeScreen(),
     );
   }
 }
