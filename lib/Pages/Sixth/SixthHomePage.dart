@@ -87,9 +87,7 @@ class _SixthHomePageState extends State<SixthHomePage> {
             child: Text(
               'PoPular ',
               style: TextStyle(
-                  color: _MainDarkColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+                  color: _MainColor, fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
@@ -152,11 +150,11 @@ class _SixthHomePageState extends State<SixthHomePage> {
   Widget _ProductCard(
       String imageUrl, Color myColor, String title, String categoryName) {
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, bottom: 4),
+      padding: const EdgeInsets.only(right: 8.0, bottom: 4, left: 8),
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xffF7F6FB),
-          borderRadius: BorderRadius.circular(12),
+          color: Color(0xffFF1F0F5),
+          borderRadius: BorderRadius.circular(25),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
