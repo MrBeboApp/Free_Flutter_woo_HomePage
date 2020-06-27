@@ -8,6 +8,8 @@ class ThirdHomeScreen extends StatefulWidget {
 Color _MainColor = Color(0xff002638);
 
 Color _RedViolaColor = Color(0xffC70039);
+Color _DarkWhiteColor = Color(0xffF7F6FB);
+
 
 
 List<String> myImageUrl =[
@@ -31,10 +33,11 @@ List<IconData> myicons =[
 
 ];
 List<Color> myColors =[
-  Colors.green,
-  Colors.indigoAccent,
-  Colors.brown,
-  Colors.deepOrange
+  _RedViolaColor,
+  _DarkWhiteColor,
+  _DarkWhiteColor,
+  _DarkWhiteColor
+
 ];
 
 
@@ -58,16 +61,22 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
           ),
           custumTextField('Search ',Icon(Icons.search,color: _RedViolaColor,)),
 
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Categories ',style: TextStyle(color:_MainColor,fontSize: 20,fontWeight: FontWeight.bold),),
+          ),
+
+
         Container(
-          height: 80,
+          height: 200,
           child: ListView (
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             children: <Widget>[
-            _SectionCard(myTitles[0], myicons[0], myColors[0]),
-             _SectionCard(myTitles[1], myicons[1], myColors[1]),
-            _SectionCard(myTitles[2], myicons[2], myColors[2]),
-             _SectionCard(myTitles[3], myicons[3], myColors[3]),
+            _SectionCard(myTitles[0], myicons[0], myColors[0],Colors.white,Colors.white),
+             _SectionCard(myTitles[1], myicons[1], myColors[1],_RedViolaColor,_RedViolaColor),
+            _SectionCard(myTitles[2], myicons[2], myColors[1],_RedViolaColor,_RedViolaColor),
+             _SectionCard(myTitles[3], myicons[3], myColors[1],_RedViolaColor,_RedViolaColor),
 
 
             ],
@@ -86,14 +95,7 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
               physics: ClampingScrollPhysics(),
               children: <Widget>[
                 _ProductCard(myImageUrl[0],myColors[0] ,'The Product Title',myTitles[0]),
-                _ProductCard(myImageUrl[1],myColors[3] ,'The Product Title',myTitles[1]),
-                _ProductCard(myImageUrl[2],myColors[2] ,'The Product Title',myTitles[2]),
-                _ProductCard(myImageUrl[3],myColors[3] ,'The Product Title',myTitles[3]),
-                _ProductCard(myImageUrl[0],myColors[0] ,'The Product Title',myTitles[0]),
-                _ProductCard(myImageUrl[1],myColors[3] ,'The Product Title',myTitles[1]),
-                _ProductCard(myImageUrl[2],myColors[2] ,'The Product Title',myTitles[2]),
-
-                _ProductCard(myImageUrl[3],myColors[3] ,'The Product Title',myTitles[3]),
+          
 
 
             
@@ -141,7 +143,7 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
 
 
                 
- Widget _SectionCard (String title  , IconData myIcon ,Color myColor){
+ Widget _SectionCard (String title  , IconData myIcon ,Color myColor,Color btnColor,Color contentColor){
                 
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -149,32 +151,43 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
                         children: <Widget>[
                           Container(
                 
-                                           height: MediaQuery.of(context).size.height * 0.07,
-                                           width: MediaQuery.of(context).size.width * 0.32,
+                                         height: MediaQuery.of(context).size.height * 0.20,
+                                           width: MediaQuery.of(context).size.width * 0.30,
                                            decoration: BoxDecoration(
                                             color: myColor,
                                              borderRadius: BorderRadius.circular(10),
-                 
+                                                 boxShadow: [
+                                                        BoxShadow(
+                                                          color: Colors.grey.withOpacity(0.2),
+                                                          spreadRadius: 3,
+                                                          blurRadius: 8,
+                                                          offset: Offset(0, 3), // changes position of shadow
+                                                        ),
+                                                      ],
+                                                                                              
                 
                                            ),
-                                           child: Row(
+                                           child: Column(
                                              crossAxisAlignment: CrossAxisAlignment.center,
                                              mainAxisAlignment: MainAxisAlignment.center,
                                              children: <Widget>[
-                                               Icon(myIcon,color: Colors.white,size: 30,),
+                                               Icon(myIcon,color: contentColor,size: 30,),
                                                   SizedBox(
                                                  width: 10,
                                                ),
                                               
-                                               Text(title,style: TextStyle(color:Colors.white,fontSize: 18),),
+                                               Text(title,style: TextStyle(color:contentColor,fontSize: 18),),
                                                 SizedBox(
-                                                 height: 4,
+                                                 height: 15,
                                                ),
+
+                                              Icon(Icons.play_circle_filled,color:btnColor ,size: 35,),
+
+
                                              ],
                                            ),
                                          ),
-                
-                                      
+                            
                         ],
                       ),
                     );
