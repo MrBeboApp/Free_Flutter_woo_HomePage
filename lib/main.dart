@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:woohome/Pages/Fifth/FifthHomeScreen.dart';
 import 'package:woohome/Pages/Fourth/FourthHomeScreen.dart';
 import 'package:woohome/Pages/Third/ThirdHomeScreen.dart';
 
 import 'Pages/First/FirstHome.dart';
 import 'Pages/Second/SecondHome.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -18,12 +18,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Woo Home Pages',
       theme: ThemeData(
-   
         primarySwatch: Colors.teal,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FourthHomeScreen(),
+      home: FifthHomeScreen(),
     );
   }
 }
