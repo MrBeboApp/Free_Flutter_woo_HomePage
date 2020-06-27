@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:woohome/Pages/Fifth/FifthHomeScreen.dart';
 import 'package:woohome/Pages/Fourth/FourthHomeScreen.dart';
+import 'package:woohome/Pages/Sixth/SixthHomePage.dart';
 import 'package:woohome/Pages/Third/ThirdHomeScreen.dart';
 
 import 'Pages/First/FirstHome.dart';
@@ -21,7 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FifthHomeScreen(),
+      //home: FirstHome(),
+      //home: SecondHome(),
+      //home: ThirdHomeScreen(),
+      //home: FourthHomeScreen(),
+      //home: FifthHomeScreen(),
+      home: SixthHomePage(),
     );
   }
 }
