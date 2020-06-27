@@ -13,10 +13,15 @@ Color _DarkWhiteColor = Color(0xffF7F6FB);
 
 
 List<String> myImageUrl =[
-  'https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3178&q=80',
-  'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80',
-  'https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1900&q=80',
-  'https://images.unsplash.com/photo-1525904097878-94fb15835963?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80'
+  'https://images.unsplash.com/photo-1491508624904-7669836a24ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3449&q=80',
+    'https://images.unsplash.com/photo-1476055090065-a605fefd840e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3000&q=80',
+
+  'https://images.unsplash.com/photo-1562657548-fcab42b43035?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1532&q=80',
+
+  'https://images.unsplash.com/photo-1552225193-d1808c1c72d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
+
+  'https://images.unsplash.com/photo-1585944348450-35593b4c836d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
+
 ];
 
 List<String> myTitles =[
@@ -68,15 +73,16 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
 
 
         Container(
-          height: 200,
+          height: 180,
           child: ListView (
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             children: <Widget>[
+             _SectionCard(myTitles[1], myicons[1], myColors[1],_RedViolaColor,_MainColor),
             _SectionCard(myTitles[0], myicons[0], myColors[0],Colors.white,Colors.white),
-             _SectionCard(myTitles[1], myicons[1], myColors[1],_RedViolaColor,_RedViolaColor),
-            _SectionCard(myTitles[2], myicons[2], myColors[1],_RedViolaColor,_RedViolaColor),
-             _SectionCard(myTitles[3], myicons[3], myColors[1],_RedViolaColor,_RedViolaColor),
+
+            _SectionCard(myTitles[2], myicons[2], myColors[1],_RedViolaColor,_MainColor),
+             _SectionCard(myTitles[3], myicons[3], myColors[1],_RedViolaColor,_MainColor),
 
 
             ],
@@ -85,7 +91,7 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
         ),
         Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('Hot Sale products ',style: TextStyle(color:  Colors.deepOrange,fontSize: 18,fontWeight: FontWeight.bold),),
+            child: Text('Hot Activity ',style: TextStyle(color: _MainColor,fontSize: 20,fontWeight: FontWeight.bold),),
           ),
 
           Container(
@@ -94,7 +100,17 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
               scrollDirection: Axis.vertical,
               physics: ClampingScrollPhysics(),
               children: <Widget>[
-                _ProductCard(myImageUrl[0],myColors[0] ,'The Product Title',myTitles[0]),
+                _ProductCard(myImageUrl[0],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[1],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[2],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[3],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[4],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[0],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[1],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[3],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[2],myColors[0] ,'The Event Title',myTitles[0]),
+                _ProductCard(myImageUrl[0],myColors[0] ,'The Event Title',myTitles[0]),
+
           
 
 
@@ -156,24 +172,20 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
                                            decoration: BoxDecoration(
                                             color: myColor,
                                              borderRadius: BorderRadius.circular(10),
-                                                 boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors.grey.withOpacity(0.2),
-                                                          spreadRadius: 3,
-                                                          blurRadius: 8,
-                                                          offset: Offset(0, 3), // changes position of shadow
-                                                        ),
-                                                      ],
-                                                                                              
-                
+                                               
                                            ),
+                                           
                                            child: Column(
                                              crossAxisAlignment: CrossAxisAlignment.center,
                                              mainAxisAlignment: MainAxisAlignment.center,
                                              children: <Widget>[
+                                           SizedBox(
+                                                 height: 10,
+                                               ),
+
                                                Icon(myIcon,color: contentColor,size: 30,),
                                                   SizedBox(
-                                                 width: 10,
+                                                 height: 10,
                                                ),
                                               
                                                Text(title,style: TextStyle(color:contentColor,fontSize: 18),),
@@ -195,7 +207,7 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
                 
   Widget _ProductCard(String imageUrl, Color myColor , String title ,String categoryName) {
     return Padding(
-      padding: const EdgeInsets.only(top:3.0,right: 15,left: 5),
+      padding: const EdgeInsets.only(top:10.0,right: 15,left: 5),
       child: Container(
 
         decoration: BoxDecoration(
@@ -207,14 +219,13 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             
             children: <Widget>[
             
 
             Container(
-              height: 80,
-              width: 80,
+              height: 130,
+              width: 130,
                    decoration: BoxDecoration(
                         image:  DecorationImage(
                         image: NetworkImage(imageUrl),
@@ -224,20 +235,45 @@ class _ThirdHomeScreenState extends State<ThirdHomeScreen> {
                           ), 
                           ),
 
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            
-            children: <Widget>[
+          Flexible(
+                      child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
+                children: <Widget>[
 
-            Text(title,style: TextStyle(color: myColor,fontSize: 12,fontWeight: FontWeight.bold)),
-            SizedBox(height: 5),
-            Text(categoryName,style: TextStyle(color:  _MainColor,fontSize: 12,fontWeight: FontWeight.bold)),
-            SizedBox(height: 5),
-            Text('The description that help the user to take action ',style: TextStyle(color:  Colors.grey,fontSize: 12)),
+                Text(title,style: TextStyle(color: myColor,fontSize: 15,fontWeight: FontWeight.bold)),
+                SizedBox(height: 5),
+                Text(categoryName,style: TextStyle(color:  _MainColor,fontSize: 12,fontWeight: FontWeight.bold)),
+                SizedBox(height: 5),
+                Text('The description that help the user to take action ',style: TextStyle(color:  Colors.grey,fontSize: 12)),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                 Text('25 Min',style: TextStyle(color: myColor,fontSize: 10)),
+
+                    SizedBox(
+                       width: 40,
+                     ),
+
+                 Row(
+                   children: <Widget>[
+                     Icon(Icons.bookmark,color: _RedViolaColor,),
+                  
+                     Text('3 days Delievry',style: TextStyle(color:_RedViolaColor),)
+                   ],
+                 ),
+
+                  
+                ],),
       
 
 
-          ],)
+              ],),
+            ),
+          )
           
           ],
           ),
