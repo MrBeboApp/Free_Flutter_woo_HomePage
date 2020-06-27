@@ -9,14 +9,15 @@ class FifthHomeScreen extends StatefulWidget {
 Color _MainColor = Color(0xff002638);
 
 Color _ViolaColor = Color(0xff5B4DD2);
-Color _DarkWhiteColor = Color(0xffF7F6FB);
+Color _DarkWhiteColor = Color(0xffEDEDEF);
 
 List<String> myImageUrl = [
-  'https://images.unsplash.com/photo-1491508624904-7669836a24ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3449&q=80',
-  'https://images.unsplash.com/photo-1476055090065-a605fefd840e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3000&q=80',
-  'https://images.unsplash.com/photo-1562657548-fcab42b43035?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1532&q=80',
-  'https://images.unsplash.com/photo-1552225193-d1808c1c72d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
-  'https://images.unsplash.com/photo-1585944348450-35593b4c836d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
+  'https://images.unsplash.com/photo-1579828898622-446b9d65ff73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3747&q=80',
+  'https://images.unsplash.com/photo-1522273400909-fd1a8f77637e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3100&q=80',
+  'https://images.unsplash.com/photo-1570569962804-5377da5be035?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2324&q=80',
+  'https://images.unsplash.com/photo-1585155770447-2f66e2a397b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3589&q=80',
+  'https://images.unsplash.com/photo-1588680388356-127f57196ca8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1575&q=80',
+  'https://images.unsplash.com/photo-1532947974358-a218d18d8d14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80',
 ];
 
 List<String> myTitles = ['Fashion', 'Shoses', 'Skrill', 'Jeans', 'Dress'];
@@ -82,7 +83,7 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
             child: ListView(
               children: <Widget>[
                 Container(
-                  height: 200,
+                  height: 110,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
@@ -91,8 +92,8 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
                           _MainColor, _MainColor),
                       _SectionCard(myTitles[1], myicons[1], _DarkWhiteColor,
                           _MainColor, _MainColor),
-                      _SectionCard(myTitles[2], myicons[2], _DarkWhiteColor,
-                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[2], myicons[2],
+                          _ViolaColor.withOpacity(0.7), _MainColor, _MainColor),
                       _SectionCard(myTitles[3], myicons[3], _DarkWhiteColor,
                           _MainColor, _MainColor),
                       _SectionCard(myTitles[4], myicons[4], _DarkWhiteColor,
@@ -105,11 +106,43 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
                   ),
                 ),
                 Divider(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                      child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text('Best products fans like',
+                              style: TextStyle(
+                                  color: _ViolaColor,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold)),
+                          Text('best Jeans Selling ',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12)),
+                        ],
+                      ),
+                      Text('SEE MORE  ',
+                          style: TextStyle(color: Colors.grey, fontSize: 12)),
+                    ],
+                  )),
+                ),
                 Container(
-                  height: 150,
                   child: ListView(
-                    scrollDirection: Axis.vertical,
-                    children: <Widget>[],
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
+                    children: <Widget>[
+                      _ProductCard(myImageUrl[0]),
+                      _ProductCard(myImageUrl[1]),
+                      _ProductCard(myImageUrl[2]),
+                      _ProductCard(myImageUrl[3]),
+                      _ProductCard(myImageUrl[4]),
+                      _ProductCard(myImageUrl[5]),
+                    ],
                   ),
                 ),
               ],
@@ -166,7 +199,7 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
             width: MediaQuery.of(context).size.width * 0.15,
             decoration: BoxDecoration(
               color: myColor,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(80),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -201,76 +234,58 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
     );
   }
 
-  Widget _ProductCard(
-      String imageUrl, Color myColor, String title, String categoryName) {
+  Widget _ProductCard(String imageUrl) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0, right: 15, left: 5),
+      padding: const EdgeInsets.all(20.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xffF7F6FB),
-          borderRadius: BorderRadius.circular(12),
+          color: _DarkWhiteColor,
+          borderRadius: BorderRadius.circular(30),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
+          padding: const EdgeInsets.only(top: 18.0, left: 25),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: 130,
-                width: 130,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(imageUrl),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
+              Text(
+                'The Product Title',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 70.0),
+                child: Text(
+                  'In This Time we Like This Product Title',
+                  style: TextStyle(
+                      color: _MainColor,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(title,
-                          style: TextStyle(
-                              color: myColor,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold)),
-                      SizedBox(height: 5),
-                      Text(categoryName,
-                          style: TextStyle(
-                              color: _MainColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold)),
-                      SizedBox(height: 5),
-                      Text('The description that help the user to take action ',
-                          style: TextStyle(color: Colors.grey, fontSize: 12)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text('25 Min',
-                              style: TextStyle(color: myColor, fontSize: 10)),
-                          SizedBox(
-                            width: 40,
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Icon(
-                                Icons.bookmark,
-                                color: _ViolaColor,
-                              ),
-                              Text(
-                                '3 days Delievry',
-                                style: TextStyle(color: _ViolaColor),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 250,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: _DarkWhiteColor,
+                    image: DecorationImage(
+                      image: NetworkImage(imageUrl),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
