@@ -19,12 +19,13 @@ List<String> myImageUrl = [
   'https://images.unsplash.com/photo-1585944348450-35593b4c836d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
 ];
 
-List<String> myTitles = ['Food', 'Run', 'Lifestyle', 'Education'];
+List<String> myTitles = ['Fashion', 'Shoses', 'Skrill', 'Jeans', 'Dress'];
 List<IconData> myicons = [
-  Icons.local_pizza,
-  Icons.directions_run,
-  Icons.explore,
-  Icons.local_library
+  Icons.business_center,
+  Icons.airline_seat_legroom_normal,
+  Icons.accessibility,
+  Icons.mood_bad,
+  Icons.adb
 ];
 List<Color> myColors = [
   _ViolaColor,
@@ -36,17 +37,86 @@ List<Color> myColors = [
 class _FifthHomeScreenState extends State<FifthHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          height: MediaQuery.of(context).size.height * 0.25,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: _ViolaColor,
-            borderRadius: BorderRadius.circular(15.0),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: _ViolaColor,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(
+            Icons.atm,
+            color: Colors.white,
+            size: 60,
           ),
         ),
-      ],
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.apps,
+              color: Colors.white,
+              size: 50,
+            ),
+          ),
+        ],
+      ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height * 0.15,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: _ViolaColor,
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20.0, right: 10, left: 10),
+              child: custumTextField(
+                  'Search ...', Icon(Icons.search, color: Colors.white)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 150),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      _SectionCard(myTitles[0], myicons[0], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[1], myicons[1], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[2], myicons[2], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[3], myicons[3], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[4], myicons[4], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[0], myicons[0], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                      _SectionCard(myTitles[2], myicons[2], _DarkWhiteColor,
+                          _MainColor, _MainColor),
+                    ],
+                  ),
+                ),
+                Divider(),
+                Container(
+                  height: 150,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    children: <Widget>[],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -55,21 +125,33 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
   //You can edit the Custom Input Text Field from Here
 
   Widget custumTextField(String hint, Icon iconName) {
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: TextField(
-        style: TextStyle(color: _MainColor),
-        cursorColor: _ViolaColor,
-        decoration: InputDecoration(
-          disabledBorder: InputBorder.none,
-          fillColor: Colors.transparent,
-          filled: true,
-          hintText: hint,
-          labelStyle: TextStyle(color: _MainColor),
-          suffixIcon: iconName,
-          focusColor: _ViolaColor,
+    return Column(
+      children: <Widget>[
+        SizedBox(
+          height: 10,
         ),
-      ),
+        Container(
+          decoration: BoxDecoration(
+            color: _DarkWhiteColor.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(25),
+          ),
+          child: TextField(
+            style: TextStyle(color: Colors.white),
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+                errorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                fillColor: _DarkWhiteColor.withOpacity(0),
+                filled: true,
+                hintText: hint,
+                labelStyle: TextStyle(color: Colors.white),
+                suffixIcon: iconName),
+          ),
+        ),
+      ],
     );
   }
 
@@ -80,11 +162,11 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
       child: Column(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height * 0.20,
-            width: MediaQuery.of(context).size.width * 0.30,
+            height: MediaQuery.of(context).size.height * 0.08,
+            width: MediaQuery.of(context).size.width * 0.15,
             decoration: BoxDecoration(
               color: myColor,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,19 +183,17 @@ class _FifthHomeScreenState extends State<FifthHomeScreen> {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  title,
-                  style: TextStyle(color: contentColor, fontSize: 18),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Icon(
-                  Icons.play_circle_filled,
-                  color: btnColor,
-                  size: 35,
-                ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              style: TextStyle(
+                color: contentColor,
+                fontSize: 15,
+              ),
             ),
           ),
         ],
