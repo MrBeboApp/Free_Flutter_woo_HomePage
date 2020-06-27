@@ -7,7 +7,7 @@ class FourthHomeScreen extends StatefulWidget {
 //Static Data Here
 Color _MainColor = Color(0xff4C8863);
 
-Color _DarkbrownColor = Color(0xffF7F6FB);
+Color _DarkbrownColor = Color(0xff25241F);
 
 
 
@@ -92,12 +92,22 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
           ),
 
           Container(
-            height: MediaQuery.of(context).size.height * 0.57,
+            width: 180,
             child: ListView(
               scrollDirection: Axis.vertical,
               physics: ClampingScrollPhysics(),
+              shrinkWrap: true,
               children: <Widget>[
-                _ProductCard(myImageUrl[4],myColors[1] ,'The Deserts Shop Name',myTitles[0]),
+                _ProductCard(myImageUrl[4],_DarkbrownColor ,'The Deserts Shop Name'),
+               _ProductCard(myImageUrl[1],_DarkbrownColor ,'The Deserts Shop Name'),
+               _ProductCard(myImageUrl[3],_DarkbrownColor ,'The Deserts Shop Name'),
+               _ProductCard(myImageUrl[5],_DarkbrownColor ,'The Deserts Shop Name'),
+
+
+
+
+              
+
       
 
           
@@ -110,6 +120,37 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
                             ),
                           ),
                         
+              Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Daily Offers  ',style: TextStyle(color: _MainColor,fontSize: 20,fontWeight: FontWeight.bold),),
+          ),
+
+
+          Container(
+          height: 180,
+          child: ListView (
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            children: <Widget>[
+             _SectionCard(myImageUrl[0]),
+             _SectionCard(myImageUrl[5]),
+             _SectionCard(myImageUrl[2]),
+             _SectionCard(myImageUrl[3]),
+             _SectionCard(myImageUrl[4]),
+             _SectionCard(myImageUrl[1]),
+
+
+
+            ],
+          ),
+        
+        ),
+                        
+                    
+
+
+
+                        
                         ],
                       ),                      
                     );
@@ -121,30 +162,6 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
   //Start the custom cards and Fields
 
   //You can edit the Custom Input Text Field from Here
-
-  Widget custumTextField(String hint , Icon iconName){
-
-    return Padding(
-      padding: const EdgeInsets.all(18.0),
-      child: TextField(
-
-        style: TextStyle(color: _MainColor),
-        cursorColor: _DarkbrownColor,
-        decoration: InputDecoration(
-          disabledBorder: InputBorder.none,
-          fillColor: Colors.transparent,filled: true,
-          hintText: hint,labelStyle: TextStyle(color: _MainColor),
-          suffixIcon: iconName,
-          focusColor: _DarkbrownColor,
-
-
-        ),
-
-
-      ),
-    );
-
-  }
 
 
                 
@@ -175,7 +192,7 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
                     );
                   }
                 
-  Widget _ProductCard(String imageUrl, Color myColor , String title ,String categoryName) {
+  Widget _ProductCard(String imageUrl, Color myColor , String title ,) {
     return Padding(
       padding: const EdgeInsets.only(top:10.0,right: 15,left: 5),
       child: Container(
@@ -194,8 +211,8 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
             
 
             Container(
-              height: 130,
-              width: 130,
+              height: 100,
+              width: 100,
                    decoration: BoxDecoration(
                         image:  DecorationImage(
                         image: NetworkImage(imageUrl),
@@ -213,16 +230,13 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
                 
                 children: <Widget>[
 
-                Text(title,style: TextStyle(color: myColor,fontSize: 15,fontWeight: FontWeight.bold)),
+                Text(title,style: TextStyle(color: myColor,fontSize: 18,fontWeight: FontWeight.bold)),
                 SizedBox(height: 5),
-                Text(categoryName,style: TextStyle(color:  _MainColor,fontSize: 12,fontWeight: FontWeight.bold)),
                 SizedBox(height: 5),
-                Text('The description that help the user to take action ',style: TextStyle(color:  Colors.grey,fontSize: 12)),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                 Text('25 Min',style: TextStyle(color: myColor,fontSize: 10)),
+                 Text('15 Saray El Gezirah St.',style: TextStyle(color: myColor,fontSize: 13)),
 
                     SizedBox(
                        width: 40,
@@ -230,9 +244,9 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
 
                  Row(
                    children: <Widget>[
-                     Icon(Icons.bookmark,color: _MainColor,),
+                     Icon(Icons.location_on,color: _MainColor,),
                   
-                     Text('3 days Delievry',style: TextStyle(color:_MainColor),)
+                     Text('45 mins',style: TextStyle(color:_MainColor),)
                    ],
                  ),
 
@@ -251,4 +265,7 @@ class _FourthHomeScreenState extends State<FourthHomeScreen> {
       ),
     );
   }
+
+
+
 }
