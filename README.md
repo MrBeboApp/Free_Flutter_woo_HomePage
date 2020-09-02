@@ -6,6 +6,18 @@ New Flutter Home page collection
 
 This project is a starting point for design anew good Home Page for your Flutter project
 
+
+**WE DON`T USE ANY EXTERNAL PLUGIN **
+
+Flutter is an open-source mobile application development SDK created by Google. It is used to develop applications for Android and iOS, as well as being the primary method of creating applications for Google Fuchsia, Flutter widgets incorporate all critical platform differences such as scrolling, navigation, icons and fonts to provide full native performance on both iOS and Android.
+
+6 Different Styles.  
+unlimited Screens. 
+Easy to Edit.  
+Easy to Add to your Project.  
+
+
+
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
