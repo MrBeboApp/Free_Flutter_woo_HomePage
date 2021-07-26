@@ -19,27 +19,27 @@ class _NavigationTitledState extends State<NavigationTitled> {
       items: [
     BottomNavigationBarItem(
       icon:Icon(Icons.mail,),
-      title: Text('Contact'),
+      label: 'Contact',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.flash_auto,),
-      title: Text('Trend'),
+      label: 'Trend',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.home,),
-      title: Text('Home'),
+      label: 'Home',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.search,),
-      title: Text('Search'),
+      label: 'Search',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.chat),
-      title: Text('Blog'),
+      label:'Blog',
       backgroundColor: Colors.white,
     ),
   

@@ -21,22 +21,22 @@ class _NavigationUntitledState extends State<NavigationUntitled> {
       items: [
     BottomNavigationBarItem(
       icon:Icon(Icons.shopping_cart,),
-      title: Text(''),
+      label: '',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.settings_voice,),
-      title: Text(''),
+      label: '',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.home,),
-      title: Text(''),
+      label: '',
       backgroundColor: Colors.white,
     ),
         BottomNavigationBarItem(
       icon:Icon(Icons.settings,),
-      title: Text(''),
+      label: '',
       backgroundColor: Colors.white,
     ),
   
